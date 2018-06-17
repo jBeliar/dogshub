@@ -1,5 +1,5 @@
 .app--header {
-  height: 100px;
+  height: 80px;
   color: rgb(94, 93, 93);
   border: color;
   font-size: 5rem;
@@ -16,7 +16,7 @@
 }
 
 .app--menu {
-  width: 70px;
+  width: 100px;
   border-right: 5px solid rgb(94, 93, 93);
 }
 

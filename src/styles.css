@@ -21,3 +21,9 @@ app-root {
   height: 100%;
   width: 600px;
 }
+
+@media screen and (max-width: 620px) {
+  app-root {
+    width: 400px;
+  }
+}
