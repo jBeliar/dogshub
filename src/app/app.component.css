@@ -1,0 +1,27 @@
+.app--header {
+  height: 100px;
+  color: rgb(94, 93, 93);
+  border: color;
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid rgb(94, 93, 93);
+}
+
+.app--body {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.app--menu {
+  width: 70px;
+  border-right: 5px solid rgb(94, 93, 93);
+}
+
+.app--content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
