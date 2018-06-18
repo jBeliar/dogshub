@@ -18,6 +18,7 @@ export class DogsComponent {
   dogs: any[]
   breedDitionary: any[]
   dataSource: MatTableDataSource<DogModel>;
+  loading = true;
 
   constructor(
     private router: Router,
@@ -25,9 +26,14 @@ export class DogsComponent {
     private utilsService: UtilsService,
     private notifierService: NotifierService
   ) {
-    this.breedDitionary = this.persistanceService.getBreedDictionary()
-    const dogs = this.persistanceService.getDogs()
+    this.loadDogsAndDictionaries()
+  }
+
+  async loadDogsAndDictionaries() {
+    this.breedDitionary = await this.persistanceService.getBreedDictionary()
+    const dogs = await this.persistanceService.getDogs()
     this.reload(dogs)
+    this.loading = false
   }
 
   editDog(dog: any) {

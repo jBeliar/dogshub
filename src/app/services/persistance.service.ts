@@ -15,6 +15,7 @@ const breedsMock = [
 ]
 
 const DOGS = '__dogs'
+const delay = 1000
 
 @Injectable()
 export class PersistanceService {
@@ -31,7 +32,9 @@ export class PersistanceService {
   }
 
   getDogs() {
-    return this.dogs
+    return new Promise<any[]>(resolve => {
+      setTimeout(() => resolve(this.dogs), delay);
+    })
   }
 
   getBreedDictionary() {

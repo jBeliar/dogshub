@@ -6,3 +6,9 @@ table {
 .dogs-component--no-dogs-message {
   padding: 30px;
 }
+
+.dogs-component--loading-message {
+  font-size: 3rem;
+  text-align: center;
+  padding: 50px;
+}
