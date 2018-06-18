@@ -51,12 +51,10 @@ export class PersistanceService {
   }
 
   deleteDog(id: number) {
+    this.dogs = this.dogs.filter(dog => dog.id !== id)
+    const stringifyJSONDogs = JSON.stringify(this.dogs)
+    localStorage.setItem(DOGS, stringifyJSONDogs)
     return Promise.resolve()
-      .then(() => {
-        const dogs = this.dogs.filter(dog => dog.id !== id)
-        const stringifyJSONDogs = JSON.stringify(dogs)
-        localStorage.setItem(DOGS, stringifyJSONDogs)
-        return dogs
-      })
+      .then(() => this.dogs)
   }
 }
