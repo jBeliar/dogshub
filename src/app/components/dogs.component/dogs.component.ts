@@ -31,7 +31,7 @@ export class DogsComponent {
   }
 
   editDog(dog: any) {
-    this.router.navigate(['dog', dog.id]);
+    this.router.navigate(['dogs', 'edit', dog.id]);
   }
 
   reload(dogs: any[]) {

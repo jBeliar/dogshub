@@ -4,8 +4,15 @@
 
 <div class="app--body">
   <div class="app--menu">
-    <a routerLink="/dogs" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Dogs</a>
-    <a routerLink="/dogs/new" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Create</a>
+    <a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+      <button mat-button color="primary">Home</button>
+    </a>
+    <a routerLink="/dogs" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+      <button mat-button color="primary">Dogs</button>
+    </a>
+    <a routerLink="/dogs/new" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+      <button mat-button color="primary">Create</button>
+    </a>
   </div>
   <div class="app--content">
     <router-outlet></router-outlet>

@@ -7,10 +7,13 @@ import { AbstractDogForm } from '../../abstracts/abstract.dog.form';
 
 @Component({
   selector: "new-dog",
-  templateUrl: "./new.dog.component.html",
+  templateUrl: "../../templates/dog.form.template.html",
   styleUrls: ["./new.dog.component.css"]
 })
 export class NewDogComponent extends AbstractDogForm {
+
+  actionName = "Add"
+
   constructor(
     fb: FormBuilder,
     protected persistanceService: PersistanceService,
