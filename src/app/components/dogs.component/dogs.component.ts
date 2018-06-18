@@ -42,11 +42,10 @@ export class DogsComponent {
 
   reload(dogs: any[]) {
     this.dataSource = new MatTableDataSource<DogModel>(dogs);
-    console.log(this.dataSource)
   }
 
-  deleteDog(dog: any) {
-    this.persistanceService.deleteDog(dog.id)
+  deleteDog(id: number) {
+    this.persistanceService.deleteDog(id)
       .then(dogs => {
         this.notifierService.notify('Dog has been deleted')
         this.reload(dogs)

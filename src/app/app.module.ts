@@ -15,6 +15,7 @@ import { UtilsService } from './services/utils.service';
 import { NotifierService } from './services/notifier.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { appRoutes } from './app.routs';
+import { DeleteDogBtnComponent } from './components/delete.dog.btn.component/delete.dog.btn.component';
 
 const Routes = RouterModule.forRoot(
   appRoutes
@@ -38,7 +39,8 @@ const AngularMaterialModules = [
     DogsComponent,
     HomeComponent,
     EditDogComponent,
-    DogComponent
+    DogComponent,
+    DeleteDogBtnComponent
   ],
   imports: [
     Routes,
