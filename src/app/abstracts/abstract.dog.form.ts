@@ -17,7 +17,8 @@ export abstract class AbstractDogForm {
         Validators.compose([
           Validators.required,
           Validators.minLength(5),
-          Validators.maxLength(20)
+          Validators.maxLength(20),
+          Validators.pattern(/^[a-z ]+$/)
         ])
       ],
       age: [

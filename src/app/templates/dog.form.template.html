@@ -1,7 +1,8 @@
 <form [formGroup]="newDogForm" (ngSubmit)="onSubmit(newDogForm.value)">
     <mat-form-field>
       <input matInput formControlName="name" placeholder="Name">
-      <mat-error *ngIf="newDogForm.controls['name'].invalid">Name shoud be between 5 and 20</mat-error>
+      <mat-error *ngIf="!newDogForm.controls['name'].hasError('pattern') && newDogForm.controls['name'].invalid">Name shoud be between 5 and 20</mat-error>
+      <mat-error *ngIf="newDogForm.controls['name'].hasError('pattern')">Only lowercase</mat-error>
     </mat-form-field>
     
     <mat-form-field>
