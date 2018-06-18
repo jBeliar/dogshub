@@ -9,22 +9,20 @@ import { DogsComponent } from './components/dogs.component/dogs.component';
 import { HomeComponent } from './components/home.component/home.component';
 import { EditDogComponent } from './components/edit.dog.component/edit.dog.component';
 import { DogComponent } from './components/dog.component/dog.component';
+import { PersistanceService } from './services/persistance.service';
 
 const appRoutes: Routes = [
   { path: 'dogs',
     component: DogsComponent,
-    children: [
-      { path: 'new', component: NewDogComponent },
-      { path: 'edit/:id', component: EditDogComponent },
-      { path: ':id',      component: DogComponent }
-    ]
   },
+  { path: 'dogs/new', component: NewDogComponent },
+  { path: 'dogs/edit/:id', component: EditDogComponent },
+  { path: 'dogs/:id',      component: DogComponent },
   { path: '**', component: HomeComponent }
 ];
 
 const Routes = RouterModule.forRoot(
-  appRoutes,
-  { enableTracing: true }
+  appRoutes
 )
 
 @NgModule({
@@ -41,7 +39,9 @@ const Routes = RouterModule.forRoot(
     BrowserModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    PersistanceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

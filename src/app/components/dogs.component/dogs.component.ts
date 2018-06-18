@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PersistanceService } from '../../services/persistance.service';
 
 @Component({
   selector: 'dogs',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class DogsComponent {
   
+  constructor(private persistanceService: PersistanceService) {
+    console.log(this.persistanceService.getDogs())
+  }
 }
