@@ -10,11 +10,12 @@ html, body {
 body {
   display: flex;
   justify-content: center;
+  background-color: rgb(172, 172, 172);
 }
 
 app-root {
   background-color: grey;
-  border: 5px solid rgb(94, 93, 93);
+  border: 3px solid rgb(94, 93, 93);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -24,11 +25,22 @@ app-root {
 
 .mat-simple-snackbar {
   justify-content: center!important;
+  color: rgb(94, 93, 93);
   font-size: 2rem;
 }
 
 @media screen and (max-width: 620px) {
   app-root {
     width: 400px;
+  }
+  .app--body {
+    flex-direction: column!important;
+  }
+  .app--menu {
+    width: auto!important;
+    height: 100px!important;
+    border-right: none!important;
+    border-bottom: 3px solid rgb(94, 93, 93)!important;
+
   }
 }
