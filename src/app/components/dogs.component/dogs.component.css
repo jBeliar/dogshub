@@ -2,3 +2,7 @@ table {
   width: 100%;
   background-color: rgb(190, 190, 190);
 }
+
+.dogs-component--no-dogs-message {
+  padding: 30px;
+}

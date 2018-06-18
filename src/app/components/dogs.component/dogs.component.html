@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<div *ngIf="dataSource.data.length !== 0; else noDogsMessage" class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="id">
@@ -33,3 +33,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
+<ng-template #noDogsMessage>
+  <div class="dogs-component--no-dogs-message">
+    There are no dogs
+  </div>
+</ng-template>

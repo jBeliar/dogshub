@@ -18,7 +18,7 @@ export class DogsComponent {
   dogs: any[]
   breedDitionary: any[]
   dataSource: MatTableDataSource<DogModel>;
-  
+
   constructor(
     private router: Router,
     private persistanceService: PersistanceService,
@@ -36,6 +36,7 @@ export class DogsComponent {
 
   reload(dogs: any[]) {
     this.dataSource = new MatTableDataSource<DogModel>(dogs);
+    console.log(this.dataSource)
   }
 
   deleteDog(dog: any) {
