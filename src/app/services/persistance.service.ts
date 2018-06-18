@@ -39,9 +39,15 @@ export class PersistanceService {
   }
 
   addNewDog(dogModel: any) {
-    this.dogs = [...this.dogs, dogModel]
+    const id = this.dogs.reduce( (acc, dog) => dog.id>acc?dog.id:acc, 0) + 1
+    const dog = {id, ...dogModel}
+    this.dogs = [...this.dogs, dog]
     const stringifyJSONDogs = JSON.stringify(this.dogs)
     localStorage.setItem(DOGS, stringifyJSONDogs)
+    return Promise.resolve()
+      .then(() => {
+        return this.dogs
+      })
   }
 
   deleteDog(id: number) {

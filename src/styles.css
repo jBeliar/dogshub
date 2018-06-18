@@ -22,6 +22,11 @@ app-root {
   width: 600px;
 }
 
+.mat-simple-snackbar {
+  justify-content: center!important;
+  font-size: 2rem;
+}
+
 @media screen and (max-width: 620px) {
   app-root {
     width: 400px;

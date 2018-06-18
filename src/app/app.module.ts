@@ -10,9 +10,10 @@ import { HomeComponent } from './components/home.component/home.component';
 import { EditDogComponent } from './components/edit.dog.component/edit.dog.component';
 import { DogComponent } from './components/dog.component/dog.component';
 import { PersistanceService } from './services/persistance.service';
-import { MatTableModule, MatButtonModule, MatSnackBar, MatSnackBarModule } from '@angular/material';
+import { MatTableModule, MatButtonModule, MatSnackBarModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { UtilsService } from './services/utils.service';
 import { NotifierService } from './services/notifier.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'dogs',
@@ -28,6 +29,16 @@ const Routes = RouterModule.forRoot(
   appRoutes
 )
 
+const AngularMaterialModules = [
+  MatTableModule,
+  MatButtonModule,
+  MatSnackBarModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatOptionModule,
+  MatSelectModule
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +52,9 @@ const Routes = RouterModule.forRoot(
     Routes,
     BrowserModule,
     BrowserAnimationsModule,
-    MatTableModule,
-    MatButtonModule,
-    MatSnackBarModule
+    ...AngularMaterialModules,
+    FormsModule,  
+    ReactiveFormsModule
   ],
   providers: [
     PersistanceService,

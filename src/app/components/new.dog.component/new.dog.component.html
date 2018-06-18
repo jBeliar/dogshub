@@ -1,1 +1,17 @@
-new dog
+<form [formGroup]="newDogForm" (ngSubmit)="onSubmit(newDogForm.value)">
+  <mat-form-field>
+    <input matInput formControlName="name" placeholder="Name">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput type="number" formControlName="age" placeholder="Age">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-select formControlName="breed" placeholder="Breed">
+      <mat-option *ngFor="let opt of breedDic" [value]="opt.id">{{opt.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary" [disabled]="!newDogForm.valid">Add</button>
+</form>
