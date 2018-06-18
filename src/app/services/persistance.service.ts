@@ -45,33 +45,35 @@ export class PersistanceService {
     const id = this.dogs.reduce( (acc, dog) => dog.id>acc?dog.id:acc, 0) + 1
     const dog = {id, ...dogModel}
     this.dogs = [...this.dogs, dog]
-    const stringifyJSONDogs = JSON.stringify(this.dogs)
-    localStorage.setItem(DOGS, stringifyJSONDogs)
+    this.saveInDB()
     return Promise.resolve()
       .then(() => {
         return this.dogs
       })
   }
 
-  editDog(dogId: number, dogModel: any) {
-    const dogs = this.dogs.filter(dog => dog.id !== dogId)
-    const dog = {id: dogId, ...dogModel}
+  editDog(id: number, dogModel: any) {
+    const dogs = this.dogs.filter(dog => dog.id !== id)
+    const dog = {id, ...dogModel}
     this.dogs = [...dogs, dog]
-    const stringifyJSONDogs = JSON.stringify(this.dogs)
-    localStorage.setItem(DOGS, stringifyJSONDogs)
+    this.saveInDB()
     return Promise.resolve()
       .then(() => this.dogs)
   }
 
-  getDog(dogId: number) {
-    return this.dogs.find(dog => dogId == dog.id)
+  getDog(id: number) {
+    return this.dogs.find(dog => id == dog.id)
   }
 
   deleteDog(id: number) {
     this.dogs = this.dogs.filter(dog => dog.id !== id)
-    const stringifyJSONDogs = JSON.stringify(this.dogs)
-    localStorage.setItem(DOGS, stringifyJSONDogs)
+    this.saveInDB()
     return Promise.resolve()
       .then(() => this.dogs)
+  }
+
+  private saveInDB() {
+    const stringifyJSONDogs = JSON.stringify(this.dogs)
+    localStorage.setItem(DOGS, stringifyJSONDogs)
   }
 }
