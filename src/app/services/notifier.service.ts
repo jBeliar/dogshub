@@ -9,6 +9,6 @@ export class NotifierService {
   ){}
   
   notify(message: string) {
-    this.snackBar.open(message)
+    this.snackBar.open(message, '', {duration: 2000})
   }
 }
