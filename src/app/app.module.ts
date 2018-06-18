@@ -10,6 +10,9 @@ import { HomeComponent } from './components/home.component/home.component';
 import { EditDogComponent } from './components/edit.dog.component/edit.dog.component';
 import { DogComponent } from './components/dog.component/dog.component';
 import { PersistanceService } from './services/persistance.service';
+import { MatTableModule, MatButtonModule, MatSnackBar, MatSnackBarModule } from '@angular/material';
+import { UtilsService } from './services/utils.service';
+import { NotifierService } from './services/notifier.service';
 
 const appRoutes: Routes = [
   { path: 'dogs',
@@ -37,10 +40,15 @@ const Routes = RouterModule.forRoot(
   imports: [
     Routes,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [
-    PersistanceService
+    PersistanceService,
+    UtilsService,
+    NotifierService
   ],
   bootstrap: [AppComponent]
 })
