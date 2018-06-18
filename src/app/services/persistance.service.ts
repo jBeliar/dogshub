@@ -50,6 +50,20 @@ export class PersistanceService {
       })
   }
 
+  editDog(dogId: number, dogModel: any) {
+    const dogs = this.dogs.filter(dog => dog.id !== dogId)
+    const dog = {id: dogId, ...dogModel}
+    this.dogs = [...dogs, dog]
+    const stringifyJSONDogs = JSON.stringify(this.dogs)
+    localStorage.setItem(DOGS, stringifyJSONDogs)
+    return Promise.resolve()
+      .then(() => this.dogs)
+  }
+
+  getDog(dogId: number) {
+    return this.dogs.find(dog => dogId === dog.id)
+  }
+
   deleteDog(id: number) {
     this.dogs = this.dogs.filter(dog => dog.id !== id)
     const stringifyJSONDogs = JSON.stringify(this.dogs)
